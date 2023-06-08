@@ -21,5 +21,18 @@ namespace TakeCtrl.Api.Repositories
 
             return servers;
         }
+
+        public async Task<Server> ChangeStatus(string UUID, string status)
+        {
+            var result = await this.takeCtrlDbContext.Servers.SingleOrDefaultAsync(s => s.UUID == UUID);
+            if (result != null)
+            {
+                result.Status = status;
+                this.takeCtrlDbContext.SaveChanges();
+                return result;
+            }
+
+            return default(Server);
+        }
     }
 }

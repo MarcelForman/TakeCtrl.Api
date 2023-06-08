@@ -5,5 +5,6 @@ namespace TakeCtrl.Api.Repositories.Contracts
     public interface IServerRepository
     {
         Task<IEnumerable<Server>> GetServers();
+        Task<Server> ChangeStatus(string UUID, string status);
     }
 }

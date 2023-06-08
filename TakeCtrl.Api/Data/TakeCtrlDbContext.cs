@@ -73,7 +73,7 @@ namespace TakeCtrl.Api.Data
 
         public DbSet<Server> Servers { get; set; }
         public DbSet<Usage> Usages { get; set; }
-
         public DbSet<User> Users { get; set; }
+        public DbSet<Firewall> Firewalls { get; set; }
     }
 }

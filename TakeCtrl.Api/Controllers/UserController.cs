@@ -24,7 +24,7 @@ namespace TakeCtrl.Api.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<bool>> LoginUser(LoginDto user)
+        public async Task<ActionResult> LoginUser(LoginDto user)
         {
             var loginUser = await _userRepository.LoginUser(user);
 

@@ -39,5 +39,26 @@ namespace TakeCtrl.Api.Controllers
                     "Error retrieving data from the database");
             }
         }
+        [HttpPost("changestatus")]
+        public async Task<ActionResult> ChangeStatus(ChangeStatus changeStatus)
+        {
+            try
+            {
+                var result = await this._serverRepository.ChangeStatus(changeStatus.UUID, changeStatus.Status);
+
+                if (result == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    return Ok();
+                }
+            } catch (Exception ex) 
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    ex.Message);
+            }
+        }
     }
 }

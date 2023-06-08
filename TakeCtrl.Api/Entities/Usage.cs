@@ -10,5 +10,6 @@
         public double? IopsWrite { get; set; }
         public double? mbitOut { get; set; }
         public double? mbitIn { get; set;}
+        public DateTime? Date { get; set; }
     }
 }

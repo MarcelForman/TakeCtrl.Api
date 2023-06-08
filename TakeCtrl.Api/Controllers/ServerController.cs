@@ -3,6 +3,7 @@ using TakeCtrl.Api.Models.Dtos;
 using TakeCtrl.Api.Repositories.Contracts;
 using TakeCtrl.Api.Extensions;
 using System.Data;
+using TakeCtrl.Api.Entities;
 
 namespace TakeCtrl.Api.Controllers
 {
@@ -13,7 +14,7 @@ namespace TakeCtrl.Api.Controllers
         private readonly IServerRepository _serverRepository;
         public ServerController(IServerRepository _serverRepository)
         {
-              this._serverRepository = _serverRepository;
+            this._serverRepository = _serverRepository;
         }
 
         [HttpGet]
@@ -22,7 +23,7 @@ namespace TakeCtrl.Api.Controllers
             try
             {
                 var servers = await this._serverRepository.GetServers();
-                
+
                 if (servers == null)
                 {
                     return NotFound();
@@ -39,6 +40,28 @@ namespace TakeCtrl.Api.Controllers
                     "Error retrieving data from the database");
             }
         }
+
+        [HttpGet("firewall/{uuid}")]
+        public async Task<ActionResult<IEnumerable<Firewall>>> GetFirewall(string uuid)
+        {
+            try
+            {
+                var result = await this._serverRepository.GetFirewalls(uuid);
+
+                if (result == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    return Ok(result);
+                }
+            } catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
         [HttpPost("changestatus")]
         public async Task<ActionResult> ChangeStatus(ChangeStatus changeStatus)
         {

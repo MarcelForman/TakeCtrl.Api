@@ -34,5 +34,17 @@ namespace TakeCtrl.Api.Repositories
 
             return default(Server);
         }
+
+        public async Task<IEnumerable<Firewall>> GetFirewalls(string uuid)
+        {
+            var result = await this.takeCtrlDbContext.Firewalls.Where(s =>  s.UUID == uuid).ToListAsync();
+
+            if (result != null)
+            {
+                return result;
+            }
+
+            return Enumerable.Empty<Firewall>();
+        }
     }
 }

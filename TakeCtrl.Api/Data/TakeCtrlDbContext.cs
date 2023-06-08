@@ -69,6 +69,38 @@ namespace TakeCtrl.Api.Data
                 Password = "welkom",
                 IsAdmin = true
             });
+
+            //Add Firewall
+            modelBuilder.Entity<Firewall>().HasData(new Firewall
+            {
+                Id = 1,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Description = "RDP",
+                StartPort = 3389,
+                EndPort = 3389,
+                Protocol = "tcp",
+                isEnabled = true,
+            });
+            modelBuilder.Entity<Firewall>().HasData(new Firewall
+            {
+                Id = 2,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Description = "FTP",
+                StartPort = 21,
+                EndPort = 21,
+                Protocol = "tcp",
+                isEnabled = false,
+            });
+            modelBuilder.Entity<Firewall>().HasData(new Firewall
+            {
+                Id = 3,
+                UUID = "878859d6-f616-11ed-b67e-0242ac120002",
+                Description = "SSL",
+                StartPort = 22,
+                EndPort = 22,
+                Protocol = "tcp",
+                isEnabled = true,
+            });
         }
 
         public DbSet<Server> Servers { get; set; }

@@ -8,6 +8,6 @@
         public int StartPort { get; set; }
         public int EndPort { get; set; }
         public string Protocol { get; set; }
-        public bool isEnabled { get; set; }
+        public bool IsEnabled { get; set; }
     }
 }

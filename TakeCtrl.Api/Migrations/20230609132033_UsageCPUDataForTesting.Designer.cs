@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TakeCtrl.Api.Data;
 
@@ -11,9 +12,11 @@ using TakeCtrl.Api.Data;
 namespace TakeCtrl.Api.Migrations
 {
     [DbContext(typeof(TakeCtrlDbContext))]
-    partial class TakeCtrlDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230609132033_UsageCPUDataForTesting")]
+    partial class UsageCPUDataForTesting
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -222,70 +225,6 @@ namespace TakeCtrl.Api.Migrations
                             Date = new DateTime(2023, 6, 1, 10, 20, 0, 0, DateTimeKind.Unspecified),
                             Percent = 80.0,
                             Type = "CPU",
-                            UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Date = new DateTime(2023, 6, 1, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            MbitIn = 456789.0,
-                            Type = "Network",
-                            UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Date = new DateTime(2023, 6, 1, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            MbitIn = 456123.0,
-                            Type = "Network",
-                            UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Date = new DateTime(2023, 6, 1, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            MbitOut = 56894.0,
-                            Type = "Network",
-                            UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Date = new DateTime(2023, 6, 1, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            MbitOut = 56241.0,
-                            Type = "Network",
-                            UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Date = new DateTime(2023, 6, 1, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            IopsRead = 653.0,
-                            Type = "Disk",
-                            UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Date = new DateTime(2023, 6, 1, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            IopsRead = 645.0,
-                            Type = "Disk",
-                            UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Date = new DateTime(2023, 6, 1, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            IopsWrite = 423.0,
-                            Type = "Disk",
-                            UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Date = new DateTime(2023, 6, 1, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            IopsWrite = 380.0,
-                            Type = "Disk",
                             UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
                         });
                 });

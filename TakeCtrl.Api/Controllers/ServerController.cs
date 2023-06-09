@@ -62,7 +62,7 @@ namespace TakeCtrl.Api.Controllers
             }
         }
 
-        [HttpPost("changestatus")]
+        [HttpPut("changestatus")]
         public async Task<ActionResult> ChangeStatus(ChangeStatus changeStatus)
         {
             try
@@ -83,5 +83,29 @@ namespace TakeCtrl.Api.Controllers
                     ex.Message);
             }
         }
+
+        [HttpGet("averageusage/{uuid}")]
+        public async Task<ActionResult<UsageDto>> GetAverageUsage(string uuid)
+        {
+            try
+            {
+                var result = this._serverRepository.GetAverageUsage(uuid);
+
+                if (result == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    return Ok(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+
     }
 }

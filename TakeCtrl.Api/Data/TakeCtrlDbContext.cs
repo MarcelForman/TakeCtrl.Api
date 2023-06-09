@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using System.CodeDom;
 using TakeCtrl.Api.Entities;
 
@@ -79,7 +80,7 @@ namespace TakeCtrl.Api.Data
                 StartPort = 3389,
                 EndPort = 3389,
                 Protocol = "tcp",
-                isEnabled = true,
+                IsEnabled = true,
             });
             modelBuilder.Entity<Firewall>().HasData(new Firewall
             {
@@ -89,7 +90,7 @@ namespace TakeCtrl.Api.Data
                 StartPort = 21,
                 EndPort = 21,
                 Protocol = "tcp",
-                isEnabled = false,
+                IsEnabled = false,
             });
             modelBuilder.Entity<Firewall>().HasData(new Firewall
             {
@@ -99,7 +100,97 @@ namespace TakeCtrl.Api.Data
                 StartPort = 22,
                 EndPort = 22,
                 Protocol = "tcp",
-                isEnabled = true,
+                IsEnabled = true,
+            });
+
+            //Add usage
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 1,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "CPU",
+                Percent = 20,
+                Date = Convert.ToDateTime("2023-06-01 10:10:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 2,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "CPU",
+                Percent = 40,
+                Date = Convert.ToDateTime("2023-06-01 10:15:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 3,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "CPU",
+                Percent = 80,
+                Date = Convert.ToDateTime("2023-06-01 10:20:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 4,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "Network",
+                MbitIn = 456789,
+                Date = Convert.ToDateTime("2023-06-01 10:20:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 5,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "Network",
+                MbitIn = 456123,
+                Date = Convert.ToDateTime("2023-06-01 10:20:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 6,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "Network",
+                MbitOut = 56894,
+                Date = Convert.ToDateTime("2023-06-01 10:20:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 7,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "Network",
+                MbitOut = 56241,
+                Date = Convert.ToDateTime("2023-06-01 10:20:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 8,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "Disk",
+                IopsRead = 653,
+                Date = Convert.ToDateTime("2023-06-01 10:20:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 9,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "Disk",
+                IopsRead = 645,
+                Date = Convert.ToDateTime("2023-06-01 10:20:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 10,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "Disk",
+                IopsWrite = 423,
+                Date = Convert.ToDateTime("2023-06-01 10:20:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 11,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "Disk",
+                IopsWrite = 380,
+                Date = Convert.ToDateTime("2023-06-01 10:20:00"),
             });
         }
 

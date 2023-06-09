@@ -198,5 +198,7 @@ namespace TakeCtrl.Api.Data
         public DbSet<Usage> Usages { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Firewall> Firewalls { get; set; }
+
+        public DbSet<Feedback> Feedbacks { get; set; }
     }
 }

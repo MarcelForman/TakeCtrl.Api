@@ -68,5 +68,20 @@ namespace TakeCtrl.Api.Controllers
             }
         }
 
+        [HttpPost("feedback")]
+        public async Task<ActionResult> PostFeedback(Feedback feedback)
+        {
+            var newUser = await _userRepository.PostFeedback(feedback);
+
+            if (newUser != null)
+            {
+                return Ok(newUser);
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occured");
+            }
+        }
+
     }
 }

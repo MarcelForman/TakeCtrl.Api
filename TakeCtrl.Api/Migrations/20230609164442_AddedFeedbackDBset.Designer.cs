@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TakeCtrl.Api.Data;
 
@@ -11,9 +12,11 @@ using TakeCtrl.Api.Data;
 namespace TakeCtrl.Api.Migrations
 {
     [DbContext(typeof(TakeCtrlDbContext))]
-    partial class TakeCtrlDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230609164442_AddedFeedbackDBset")]
+    partial class AddedFeedbackDBset
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

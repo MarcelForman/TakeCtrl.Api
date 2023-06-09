@@ -28,9 +28,6 @@ namespace TakeCtrl.Api.Repositories
 
         public async Task<bool> LoginUser(LoginDto user) 
         {
-
-            //var userReturn = await this.takeCtrlDbContext.Users
-            //.FindAsync(user.userName);
             var userReturn = takeCtrlDbContext.Users.FirstOrDefault(userReturn => userReturn.userName == user.UserName);
 
 
@@ -58,6 +55,16 @@ namespace TakeCtrl.Api.Repositories
             await this.takeCtrlDbContext.SaveChangesAsync();
 
             return newUser.Entity;
+        }
+
+        public async Task<Feedback> PostFeedback(Feedback feedback)
+        {
+            var newFeedback = await takeCtrlDbContext.Feedbacks.AddAsync(feedback);
+
+            await this.takeCtrlDbContext.SaveChangesAsync();
+
+            return newFeedback.Entity;
+
         }
     }
 }

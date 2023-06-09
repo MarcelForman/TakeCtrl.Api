@@ -84,12 +84,12 @@ namespace TakeCtrl.Api.Controllers
             }
         }
 
-        [HttpGet("averageusage/{uuid}")]
-        public async Task<ActionResult<UsageDto>> GetAverageUsage(string uuid)
+        [HttpPost("averageusage")]
+        public async Task<ActionResult<UsageDto>> GetAverageUsage(UsageReq usageReq)
         {
             try
             {
-                var result = this._serverRepository.GetAverageUsage(uuid);
+                var result = this._serverRepository.GetAverageUsage(usageReq);
 
                 if (result == null)
                 {

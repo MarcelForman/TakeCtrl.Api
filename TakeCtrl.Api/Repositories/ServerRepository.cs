@@ -48,34 +48,30 @@ namespace TakeCtrl.Api.Repositories
             return Enumerable.Empty<Firewall>();
         }
 
-        public UsageDto GetAverageUsage(string uuid)
+        public UsageDto GetAverageUsage(UsageReq usageReq)
         {
-            /*            var avgCpu = (from usage in takeCtrlDbContext.Usages
-                                      where usage.UUID == uuid
-                                      select (g => new UsageDto
-                                      {
-                                          CpuAvg = g.Select(a => a.CpuAvg).Average(),
-                                          DiskAvg = g.Select(d => d.DiskAvg).Average(),
-                                          NetworkAvg = g.Select(n => n.NetworkAvg).Average(),
-                                      });*/
-            /*            var avg = db.Courses
-                                    .Where(c => c.StudentId == Id && c.Score != null)
-                                    .Average(c => c.Score);*/
-            
+
+            var startDate = DateTime.Parse(usageReq.StartDate);
+            var endDate = DateTime.Parse(usageReq.EndDate);
+            if (startDate.Equals(endDate)) 
+            {
+                endDate = endDate.AddDays(1);
+            }
+
             var cpuAvg = this.takeCtrlDbContext.Usages
-                .Where(c => c.UUID == uuid)
+                .Where(c => c.UUID == usageReq.Uuid && (c.Date >= startDate && c.Date <= endDate))
                 .Average(c => c.Percent);
             var diskReadAvg = this.takeCtrlDbContext.Usages
-                .Where(c => c.UUID == uuid)
+                .Where(c => c.UUID == usageReq.Uuid)
                 .Average(c => c.IopsRead);
             var diskWriteAvg = this.takeCtrlDbContext.Usages
-                .Where(c => c.UUID == uuid)
+                .Where(c => c.UUID == usageReq.Uuid)
                 .Average(c => c.IopsWrite);
             var networkInAvg = this.takeCtrlDbContext.Usages
-                .Where(c => c.UUID == uuid)
+                .Where(c => c.UUID == usageReq.Uuid)
                 .Average(c => c.MbitIn);
             var networkOutAvg = this.takeCtrlDbContext.Usages
-                .Where(c => c.UUID == uuid)
+                .Where(c => c.UUID == usageReq.Uuid)
                 .Average(c => c.MbitOut);
             //cpuAvg = 5.0;
             //cpuAvg = cpuAvg ?? -1.0;

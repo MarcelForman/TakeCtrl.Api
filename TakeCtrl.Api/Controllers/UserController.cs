@@ -35,8 +35,38 @@ namespace TakeCtrl.Api.Controllers
             else
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "An error occured.");
-            }
-            //return Ok(loginUser);
+            }            
         }
+
+        [HttpGet("/api/users")]
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        {
+            var users = await _userRepository.GetUsers();
+
+            if (users != null)
+            {
+                return Ok(users);
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occured.");
+            }
+        }
+
+        [HttpPost("adduser")]
+        public async Task<ActionResult> AddUser(User user)
+        {
+            var newUser = await _userRepository.AddUser(user);
+
+            if (newUser != null)
+            {
+                return Ok(newUser);
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occured");
+            }
+        }
+
     }
 }

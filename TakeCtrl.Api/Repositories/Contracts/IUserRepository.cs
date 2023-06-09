@@ -10,5 +10,6 @@ namespace TakeCtrl.Api.Repositories.Contracts
         Task<bool> DeleteUser(User user);
 
         Task<bool> LoginUser(LoginDto user);
+        Task<User> AddUser(User user);
     }
 }

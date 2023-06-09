@@ -45,9 +45,19 @@ namespace TakeCtrl.Api.Repositories
             return false;
         }
 
-        public Task<IEnumerable<User>> GetUsers()
+        public async Task<IEnumerable<User>> GetUsers()
         {
-            throw new NotImplementedException();
+            var users = await takeCtrlDbContext.Users.ToListAsync();
+            return users;
+        }
+
+        public async Task<User> AddUser(User user)
+        {
+            var newUser = await takeCtrlDbContext.AddAsync(user);
+
+            await this.takeCtrlDbContext.SaveChangesAsync();
+
+            return newUser.Entity;
         }
     }
 }

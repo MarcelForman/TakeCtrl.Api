@@ -66,5 +66,12 @@ namespace TakeCtrl.Api.Repositories
             return newFeedback.Entity;
 
         }
+
+        public async Task<IEnumerable<Feedback>> GetAllFeedbacks()
+        {
+            var result = await takeCtrlDbContext.Feedbacks.ToListAsync();
+
+            return result;
+        }
     }
 }

@@ -83,5 +83,20 @@ namespace TakeCtrl.Api.Controllers
             }
         }
 
+        [HttpGet("getfeedback")]
+        public async Task<ActionResult<IEnumerable<Feedback>>> GetAllFeedback()
+        {
+            var result = await _userRepository.GetAllFeedbacks();
+
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occured");
+            }
+        }
+
     }
 }

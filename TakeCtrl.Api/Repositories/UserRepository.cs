@@ -73,5 +73,19 @@ namespace TakeCtrl.Api.Repositories
 
             return result;
         }
+
+        public async Task<User> DeleteUser(int id)
+        {
+            var user = await this.takeCtrlDbContext.Users.FindAsync(id);
+
+            if (user != null)
+            {
+                this.takeCtrlDbContext.Users.Remove(user);
+                await this.takeCtrlDbContext.SaveChangesAsync();
+            }
+
+            return user;
+
+        }
     }
 }

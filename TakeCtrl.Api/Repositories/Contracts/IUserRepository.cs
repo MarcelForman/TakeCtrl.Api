@@ -12,5 +12,6 @@ namespace TakeCtrl.Api.Repositories.Contracts
         Task<User> AddUser(User user);
         Task<Feedback> PostFeedback(Feedback feedback);
         Task<IEnumerable<Feedback>> GetAllFeedbacks();
+        Task<User> DeleteUser(int id);
     }
 }

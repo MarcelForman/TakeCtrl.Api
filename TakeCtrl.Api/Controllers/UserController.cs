@@ -35,7 +35,7 @@ namespace TakeCtrl.Api.Controllers
             else
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "An error occured.");
-            }            
+            }
         }
 
         [HttpGet("/api/users")]
@@ -96,6 +96,22 @@ namespace TakeCtrl.Api.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "An error occured");
             }
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult<User>> DeleteUser(int id)
+        {
+            var result = await _userRepository.DeleteUser(id);
+
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occured");
+            }
+
         }
 
     }

@@ -17,24 +17,27 @@ namespace TakeCtrl.Api.Controllers
             _userRepository = userRepository;
         }
 
-        [HttpGet]
+/*        [HttpGet]
         public async Task<ActionResult<User>> GetUser(User user)
         {
             throw new NotImplementedException();
-        }
+
+        }*/
 
         [HttpPost("login")]
-        public async Task<ActionResult> LoginUser(LoginDto user)
+        public async Task<ActionResult<User>> LoginUser(LoginDto user)
         {
             var loginUser = await _userRepository.LoginUser(user);
 
-            if (loginUser)
+        
+            if (loginUser != null)
             {
-                return StatusCode(StatusCodes.Status200OK, "Logged in");
+                //return StatusCode(StatusCodes.Status200OK, "Logged in");
+                return Ok(loginUser);
             }
             else
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occured.");
+                return NotFound();
             }
         }
 

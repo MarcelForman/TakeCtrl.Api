@@ -73,8 +73,6 @@ namespace TakeCtrl.Api.Repositories
             var networkOutAvg = this.takeCtrlDbContext.Usages
                 .Where(c => c.UUID == usageReq.Uuid)
                 .Average(c => c.MbitOut);
-            //cpuAvg = 5.0;
-            //cpuAvg = cpuAvg ?? -1.0;
 
             return new UsageDto
             {

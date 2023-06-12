@@ -26,7 +26,7 @@ namespace TakeCtrl.Api.Repositories
             return userReturn;            
         }
 
-        public async Task<bool> LoginUser(LoginDto user) 
+        public async Task<User> LoginUser(LoginDto user) 
         {
             var userReturn = takeCtrlDbContext.Users.FirstOrDefault(userReturn => userReturn.userName == user.UserName);
 
@@ -35,11 +35,11 @@ namespace TakeCtrl.Api.Repositories
             {
                 if (userReturn.Password == user.Password)
                 {
-                    return true;
+                    return userReturn;
                 }
             }
 
-            return false;
+            return default(User);
         }
 
         public async Task<IEnumerable<User>> GetUsers()
@@ -87,5 +87,7 @@ namespace TakeCtrl.Api.Repositories
             return user;
 
         }
+
+
     }
 }

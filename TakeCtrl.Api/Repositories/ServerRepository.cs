@@ -62,16 +62,16 @@ namespace TakeCtrl.Api.Repositories
                 .Where(c => c.UUID == usageReq.Uuid && (c.Date >= startDate && c.Date <= endDate))
                 .Average(c => c.Percent);
             var diskReadAvg = this.takeCtrlDbContext.Usages
-                .Where(c => c.UUID == usageReq.Uuid)
+                .Where(c => c.UUID == usageReq.Uuid && (c.Date >= startDate && c.Date <= endDate))
                 .Average(c => c.IopsRead);
             var diskWriteAvg = this.takeCtrlDbContext.Usages
-                .Where(c => c.UUID == usageReq.Uuid)
+                .Where(c => c.UUID == usageReq.Uuid && (c.Date >= startDate && c.Date <= endDate))
                 .Average(c => c.IopsWrite);
             var networkInAvg = this.takeCtrlDbContext.Usages
-                .Where(c => c.UUID == usageReq.Uuid)
+                .Where(c => c.UUID == usageReq.Uuid && (c.Date >= startDate && c.Date <= endDate))
                 .Average(c => c.MbitIn);
             var networkOutAvg = this.takeCtrlDbContext.Usages
-                .Where(c => c.UUID == usageReq.Uuid)
+                .Where(c => c.UUID == usageReq.Uuid && (c.Date >= startDate && c.Date <= endDate))
                 .Average(c => c.MbitOut);
 
             return new UsageDto

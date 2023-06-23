@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TakeCtrl.Api.Data;
 
@@ -11,9 +12,11 @@ using TakeCtrl.Api.Data;
 namespace TakeCtrl.Api.Migrations
 {
     [DbContext(typeof(TakeCtrlDbContext))]
-    partial class TakeCtrlDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230613192724_AddedExtraUsageData")]
+    partial class AddedExtraUsageData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -309,7 +312,7 @@ namespace TakeCtrl.Api.Migrations
                         {
                             Id = 11,
                             Date = new DateTime(2023, 6, 1, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            IopsWrite = 890.0,
+                            IopsWrite = 380.0,
                             Type = "Disk",
                             UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
                         },
@@ -317,7 +320,7 @@ namespace TakeCtrl.Api.Migrations
                         {
                             Id = 12,
                             Date = new DateTime(2023, 6, 4, 10, 15, 0, 0, DateTimeKind.Unspecified),
-                            Percent = 20.0,
+                            Percent = 40.0,
                             Type = "CPU",
                             UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
                         },
@@ -333,7 +336,7 @@ namespace TakeCtrl.Api.Migrations
                         {
                             Id = 14,
                             Date = new DateTime(2023, 6, 8, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            MbitIn = 45789.0,
+                            MbitIn = 456789.0,
                             Type = "Network",
                             UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
                         },
@@ -341,7 +344,7 @@ namespace TakeCtrl.Api.Migrations
                         {
                             Id = 15,
                             Date = new DateTime(2023, 6, 8, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            MbitIn = 45613.0,
+                            MbitIn = 456123.0,
                             Type = "Network",
                             UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
                         },
@@ -349,7 +352,7 @@ namespace TakeCtrl.Api.Migrations
                         {
                             Id = 16,
                             Date = new DateTime(2023, 6, 8, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            MbitOut = 5689.0,
+                            MbitOut = 56894.0,
                             Type = "Network",
                             UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
                         },
@@ -357,7 +360,7 @@ namespace TakeCtrl.Api.Migrations
                         {
                             Id = 17,
                             Date = new DateTime(2023, 6, 8, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            MbitOut = 10241.0,
+                            MbitOut = 56241.0,
                             Type = "Network",
                             UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
                         },
@@ -365,7 +368,7 @@ namespace TakeCtrl.Api.Migrations
                         {
                             Id = 18,
                             Date = new DateTime(2023, 6, 8, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            IopsRead = 63.0,
+                            IopsRead = 653.0,
                             Type = "Disk",
                             UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
                         },
@@ -373,7 +376,7 @@ namespace TakeCtrl.Api.Migrations
                         {
                             Id = 19,
                             Date = new DateTime(2023, 6, 8, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            IopsRead = 945.0,
+                            IopsRead = 645.0,
                             Type = "Disk",
                             UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
                         },
@@ -381,7 +384,7 @@ namespace TakeCtrl.Api.Migrations
                         {
                             Id = 20,
                             Date = new DateTime(2023, 6, 8, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            IopsWrite = 123.0,
+                            IopsWrite = 423.0,
                             Type = "Disk",
                             UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
                         },
@@ -389,7 +392,7 @@ namespace TakeCtrl.Api.Migrations
                         {
                             Id = 21,
                             Date = new DateTime(2023, 6, 8, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            IopsWrite = 280.0,
+                            IopsWrite = 380.0,
                             Type = "Disk",
                             UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002"
                         });

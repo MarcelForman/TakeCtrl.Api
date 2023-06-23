@@ -189,8 +189,88 @@ namespace TakeCtrl.Api.Data
                 Id = 11,
                 UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
                 Type = "Disk",
-                IopsWrite = 380,
+                IopsWrite = 890,
                 Date = Convert.ToDateTime("2023-06-01 10:20:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 12,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "CPU",
+                Percent = 20,
+                Date = Convert.ToDateTime("2023-06-04 10:15:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 13,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "CPU",
+                Percent = 80,
+                Date = Convert.ToDateTime("2023-06-08 10:20:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 14,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "Network",
+                MbitIn = 45789,
+                Date = Convert.ToDateTime("2023-06-08 10:20:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 15,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "Network",
+                MbitIn = 45613,
+                Date = Convert.ToDateTime("2023-06-08 10:20:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 16,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "Network",
+                MbitOut = 5689,
+                Date = Convert.ToDateTime("2023-06-08 10:20:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 17,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "Network",
+                MbitOut = 10241,
+                Date = Convert.ToDateTime("2023-06-08 10:20:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 18,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "Disk",
+                IopsRead = 63,
+                Date = Convert.ToDateTime("2023-06-08 10:20:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 19,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "Disk",
+                IopsRead = 945,
+                Date = Convert.ToDateTime("2023-06-08 10:20:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 20,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "Disk",
+                IopsWrite = 123,
+                Date = Convert.ToDateTime("2023-06-08 10:20:00"),
+            });
+            modelBuilder.Entity<Usage>().HasData(new Usage
+            {
+                Id = 21,
+                UUID = "eb6c28c2-f618-11ed-b67e-0242ac120002",
+                Type = "Disk",
+                IopsWrite = 280,
+                Date = Convert.ToDateTime("2023-06-08 10:20:00"),
             });
         }
 
